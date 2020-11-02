@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .left {
+        position: absolute;
+        left:  70px;
+    }
+    td, th{
+        font-family: 'Patua One', Arial;
+        font-size:16px;
+        font-weight:400;
+    }
+    table {
+        font-family: arial, sans-serif;
+    }
+    .center {
+        padding: 70px 0;
+</style>
+
+
+<form action="https://demo.codegym.vn/6/registration_form/register.php">
+    <table bgcolor="white" >
+        <tr>
+
+            <td bgcolor="#ff4500" colspan="2" style="text-align: center ; color: white" > SỞ THÍCH CỦA BẠN </td>
+        </tr>
+        <tr>
+            <td align="right" style="color: blue"> Họ và tên</td>
+            <td> <input type="text" name="your name"></td>
+
+        </tr>
+        <tr>
+            <td align="right" style="color: blue"> Email</td>
+            <td> <input type="email" name="email"></td>
+        </tr>
+        <tr>
+            <td align="right" style="color: blue"> Sở thích</td>
+            <td> <input type="checkbox"  name="hobby" value="1"><span style="color: orangered">Thể Thao</span> &nbsp&nbsp&nbsp
+                <input type="checkbox" name="hobby" value="2"><span style="color: orangered">Âm nhạc</span>   &nbsp&nbsp&nbsp&nbsp
+                <input type="checkbox" name="hobby" value="3"><span style="color: orangered">Đọc sách</span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ><input type="checkbox" name="hobby" value="4"><span style="color: orangered">Lướt Web</span>
+                <input type="checkbox" name="hobby" value="5" style="margin-left:18px"><span style="color: orangered">Chơi game</span>
+                <input type="checkbox" name="hobby" value="6" style="margin-left:11px"><span style="color: orangered">Điện ảnh</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" name="hobby" value="7"><span style="color: orangered">Du lịch</span></td>
+        </tr>
+        <tr>
+           <td class="left">
+             <input type="submit" style="border-style: outset; margin-left: 15px;" value="Gửi thông tin" >
+               <input type="reset" style="border-style: outset;" value="Nhập lại">
+           </td>
+        </tr>
+
+    </table>
+    <br><br>
+
+
+
+
+
+
+
+</form>
+<br><br>
+<form action="Tao_form_don_gian.html">
+    <table bgcolor="#fafad2" cellpadding="3">
+        <tr>
+            <td bgcolor="#7fffd4" ><b><span style="color: blue">ĐĂNG KÝ HỌC VIÊN</span></b></td>
+        </tr>
+        <tr>
+            <td align="left"><label style="color: blue">Họ và tên</label>
+            <input style="margin-left: 50px" type="text" name="name" </td>
+        </tr>
+        <tr>
+            <td><label style="color: blue">Ngày sinh</label>
+                <input style="margin-left: 47px" type="date" name="birthday" </td>
+        </tr>
+        <tr>
+            <td ><label style="color: blue">Giới tính</label>
+                <input style="margin-left: 60px" type="radio" name="Gender"> <label>Nam</label>
+                <input type="radio" name="Gender"> <label>Nữ</label>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: blue; display: flex"> <label style="display: inline-block;align-self: center;">Địa chỉ</label>
+            <textarea style="margin-left: 70px" cols="20" rows="4"></textarea></td>
+        </tr>
+        <tr>
+            <td style="color: blue">Lớp
+                <select style="margin-left: 90px" name="grade">
+                    <option>-Chọn lớp-</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: blue">Email
+                <input type="email" name="email" style="margin-left: 80px">
+            </td>
+        </tr>
+        <tr>
+            <td style="color: blue">Điện thoại
+                <input type="tel" name="phonenumber" style="margin-left: 47px">
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <input type="submit" value="Đăng ký" name="submit" style="margin-left: 125px; border-style: outset" >
+                <input type="reset" value="Nhập lại" name="reset"style="border-style: outset">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
