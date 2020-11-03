@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Caculator</h3>
+
+    <input id="x" type="number" name="number" value="0">
+    <input id="y" type="number" name="number1" value="0">
+
+    <br> <br>
+    <button type="button" onclick="Add();">Addition(+)</button>
+    <button type="button" onclick="Sub();">Subtraction(-)</button>
+    <button type="button" onclick="Mul();">Multiplication(x)</button>
+    <button type="button" onclick="Div();">Division(/)</button>
+
+<p id="result"> Result</p>
+<script>
+    function Add(){
+        let a= parseInt(document.getElementById("x").value);
+        let b= parseInt(document.getElementById("y").value) ;
+
+        let c= a+b;
+        // alert('e');
+        // document.writeln('Kết quả' +c);
+        document.getElementById("result").innerText = "Result: " + c ;
+    }
+    function Sub(){
+        let a= parseInt(document.getElementById("x").value);
+        let b= parseInt(document.getElementById("y").value) ;
+
+        let c= a-b;
+        // alert('e');
+        // document.writeln('Kết quả' +c);
+        document.getElementById("result").innerText = "Result: " + c ;
+    }
+    function Mul(){
+        let a= parseInt(document.getElementById("x").value);
+        let b= parseInt(document.getElementById("y").value) ;
+
+        let c= a*b;
+        // alert('e');
+        // document.writeln('Kết quả' +c);
+        document.getElementById("result").innerText = "Result: " + c ;
+    }
+    function Div(){
+        let a= parseInt(document.getElementById("x").value);
+        let b= parseInt(document.getElementById("y").value) ;
+
+        let c= a/b;
+        // alert('e');
+        // document.writeln('Kết quả' +c);
+        document.getElementById("result").innerText = "Result: " + c ;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <table>
+        <tr style="text-align: center">
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr style="text-align: center">
+            <td><input id="money" type="number" name="money" value="0"></td>
+            <td><select>
+                <option>VietNam</option>
+            </select></td>
+            <td><select>
+                <option>USD</option>
+            </select></td>
+            <td>
+<!--                <button type="button" onclick="convert();">Convert</button>-->
+                <button type="button"  style="background-color: mediumpurple" onclick="convert();"> <label style="color: white">"Convert" </label></button>
+            </td>
+
+
+        </tr>
+
+    </table>
+    <br>
+<p id="result"> Result</p>
+<script>
+
+   function convert() {
+       let a= document.getElementById("money").value;
+       let c= 23000;
+       let d= a/c;
+
+       document.getElementById("result").innerText = "Result: " + d ;
+   }
+
+</script>
+
+</body>
+</html>
