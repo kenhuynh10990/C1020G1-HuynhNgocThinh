@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<form>-->
+<!--<label>username:</label>-->
+<!--<input type="text" name="username"><br>-->
+<!--<label>password:</label>-->
+<!--<input type="password" name="pass"><br><br>-->
+<!--<button type="button" onclick="Do()" name="submit" value="Sign in">-->
+<!--</form>-->
+<script>
+
+        let name= prompt("username") ;
+
+        if (name == "Admin"){
+            let pass = prompt("password");
+            if (pass == "The Master"){
+                document.writeln("Welcome");
+            } else if(pass== null){
+                document.writeln("Canceled");
+            } else {
+                document.writeln("Wrong password");
+            }
+        } else if (name == null){
+            document.writeln("Canceled");
+        } else {
+            document.writeln("I don't know you");
+        }
+
+
+</script>
+
+</body>
+</html>
