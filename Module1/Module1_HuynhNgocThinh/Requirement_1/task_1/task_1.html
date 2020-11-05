@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th,td{
+            border: 1px solid lightgoldenrodyellow;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(odd){
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+<form>
+<table>
+    <tr>
+        <th>Full Name:</th>
+        <td> <input type="text" name="name"></td>
+    </tr>
+    <tr>
+        <th> ID Number:</th>
+        <td><input type="number" name="IDnum"></td>
+    </tr>
+    <tr>
+        <th>Date of birth:</th>
+        <td><input type="date" name="birthday"></td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td><input type="email" name="email"></td>
+    </tr>
+    <tr>
+        <th>Address:</th>
+        <td><input type="text" name="address"></td>
+    </tr>
+    <tr>
+        <th>Customer:</th>
+        <td>
+            <input type="radio" name="typecus"> Diamond
+            <input type="radio" name="typecus"> Plantinum
+            <input type="radio" name="typecus"> Gold
+            <input type="radio" name="typecus"> Silver
+            <input type="radio" name="typecus"> Member
+        </td>
+    </tr>
+    <tr>
+        <th>Discount:</th>
+        <td>
+            <select name="discount" style="width: 167px">
+                <option>10%</option>
+                <option>20%</option>
+                <option>30%</option>
+            </select>
+        </td>
+<!--        <td><input type="number" name="discount"></td>-->
+    </tr>
+    <tr>
+        <th>The amount of people:</th>
+        <td><input type="number" name="numpeo"></td>
+    </tr>
+    <tr>
+        <th>The number of rent days:</th>
+        <td><input type="number" name="rentdays"></td>
+    </tr>
+    <tr>
+        <th>Type of Services:</th>
+        <td>
+            <select name="Services">
+                <option>Vip</option>
+                <option>Bussiness</option>
+                <option>Normal</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Type of Rooms:</th>
+        <td>
+            <select name="rooms">
+                <option>Villa $500/day</option>
+                <option>House $300/day</option>
+                <option>Room $100/day</option>
+            </select>
+        </td>
+    </tr>
+
+
+
+
+</table>
+<input type="submit" name="submit" value="Gửi" style="font-size: 12px">
+<input type="reset" name="reset" value="Nhập lại" style="font-size: 12px">
+
+</form>
+</body>
+</html>
