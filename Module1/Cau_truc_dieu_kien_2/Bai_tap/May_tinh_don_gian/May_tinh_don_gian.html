@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><input type="text" id="display"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="add(this.value)"></td>
+        <td><input type="button" value="2" onclick="add(this.value)"></td>
+        <td><input type="button" value="3" onclick="add(this.value)"></td>
+        <td><input type="button" value="+" onclick="add(this.value)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="add(this.value)"></td>
+        <td><input type="button" value="5" onclick="add(this.value)"></td>
+        <td><input type="button" value="6" onclick="add(this.value)"></td>
+        <td><input type="button" value="-" onclick="add(this.value)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="add(this.value)"></td>
+        <td><input type="button" value="8" onclick="add(this.value)"></td>
+        <td><input type="button" value="9" onclick="add(this.value)"></td>
+        <td><input type="button" value="*" onclick="add(this.value)"></td>
+    </tr>
+    <tr>
+        <td><input type="reset" value="C" onclick="reset()"></td>
+        <td><input type="button" value="0" onclick="add(this.value)"></td>
+        <td><input type="button" value="=" onclick="Do(this.value)"></td>
+        <td><input type="button" value="/" onclick="add(this.value)"></td>
+    </tr>
+</table>
+<script>
+    let flag = false;
+
+
+    }function add(num) {
+        if (flag) {
+            document.getElementById("display").value = "";
+        }
+        let text = document.getElementById("display").value;
+        if (num == "+" || num == "-" || num == "*" || num == "/") {
+            if (text.charAt(text.length - 1) == "+" || text.charAt(text.length - 1) == "-" || text.charAt(text.length - 1) == "*" || text.charAt(text.length - 1) == "/" ) {
+
+            }else {
+                document.getElementById("display").value += num;
+                flag = false;
+            }
+        } else {
+            document.getElementById("display").value += num;
+            flag = false;
+        }
+
+
+        function Do(num) {
+        let str = document.getElementById("display").value;
+        let result = eval(str);
+        document.getElementById("display").value = result;
+        if (num == "=") {
+            flag = true;
+        }
+    }
+
+    function reset() {
+        document.getElementById("display").value = '';
+
+    }
+
+</script>
+
+</body>
+</html>

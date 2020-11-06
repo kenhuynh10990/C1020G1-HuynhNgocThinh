@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<label>Số tháng</label>
+
+<select id="a">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+</select>
+<label>Tiền</label>
+<input id="money" type="number">
+<button type="button" onclick="Do()">Lãi</button><br>
+
+<p id="result">Lãi</p>
+<script>
+
+    function Do(){
+        let money=document.getElementById("money").value;
+        let d = 0.2;
+        let lai= money *d;
+        let month = parseInt(document.getElementById("a").value);
+        console.log(lai);
+        console.log(month);
+        switch (month) {
+            case 1 :
+                lai= money *d;
+                break;
+            case 2:
+                lai=(lai+money)*d;
+                break;
+            case 3:
+                lai=(((lai+money)*d)+money)*d;
+                break;
+        }
+        document.getElementById("result").innerHTML="Lãi" + lai;
+    }
+
+</script>
+
+</body>
+</html>

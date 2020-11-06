@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a= parseInt(prompt("nhập a:"));
+    let b= parseInt(prompt("nhập b:"));
+    let c= parseInt(prompt("nhập c:"));
+    let delt= b*b-4*a*c;
+    let d = Math.sqrt(delt);
+
+    if(a==0){
+        if (b==0){
+            alert('Phương trình vô số nghiệm');
+        } else{
+            alert("Phương trình vô nghiệm");
+        }
+    } else {
+
+          } if (delt<0){
+        alert("phương trình vô nghiệm");
+          } else if (delt==0) {
+        alert("phương trình có nghiệm kép x=" + -b/(2*a));
+         } else {
+        alert("Phương trình có 2 nghiệm phân biệt x1= " + (-b+d)/(2*a) + "x2= "+ (-b-d)/(2*a));
+    }
+
+
+
+
+</script>
+</body>
+</html>

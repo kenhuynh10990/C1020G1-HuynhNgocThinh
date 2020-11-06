@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num1 = parseInt(prompt("Nhập điểm kiểm tra:"));
+    let num2 = parseInt(prompt("Nhập điểm thi giữa kỳ:"));
+    let num3 = parseInt(prompt("Nhập điểm thi cuối kỳ:"));
+    let ave= (num1+num2*2+num3*3)/6
+    if(ave>8){
+        alert('Excellent');
+
+    } else if( ave > 7){
+        alert('Good');
+    } else if (ave >5){
+        alert('Normal');
+    } else {
+        alert('Bad');
+    }
+</script>
+
+</body>
+</html>

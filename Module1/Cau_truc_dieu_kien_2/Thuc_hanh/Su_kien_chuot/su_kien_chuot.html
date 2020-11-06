@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="image" src="https://scoresports.com/media/catalog/product/cache/1/small_image/570x660/9df78eab33525d08d6e5fb8d27136e95/b/a/ball-wht.jpg" width="50px" ><br>
+<button type="button" onclick="moveright();">CLick Me</button>
+<script>
+    let imgObj = document.getElementById("image");
+    imgObj.style.position ='relative';
+    imgObj.style.left=' 0px'
+    function moveright() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+
+    }
+</script>
+
+</body>
+</html>

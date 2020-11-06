@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="im" src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg" onclick="chang()"><br>
+<!--<img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part2x1.jpg"><br>-->
+<!--<img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg"><br>-->
+<!--<img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg">-->
+
+<script>
+    function chang() {
+        let a = document.getElementById("im").src;
+        if (a == "https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg") {
+            document.getElementById("im").src = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg";
+        } else if(a=="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg") {
+            document.getElementById("im").src = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg";
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
