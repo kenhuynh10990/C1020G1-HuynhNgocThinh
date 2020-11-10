@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th,td{
+            border: 1px solid lightgoldenrodyellow;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(odd){
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+<table id="tab" >
+    <tr>
+        <th>Full Name:</th>
+        <td> <label>Huỳnh Ngọc Thịnh</label></td>
+    </tr>
+    <tr>
+        <th> ID Number:</th>
+        <td>123456789</td>
+    </tr>
+    <tr>
+        <th>Date of birth:</th>
+        <td>03/03/1996</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>conga@gacon.com</td>
+    </tr>
+    <tr>
+        <th>Address:</th>
+        <td>Trần Duy Hưng</td>
+    </tr>
+    <tr>
+        <th>Customer:</th>
+        <td>Diamond</td>
+    </tr>
+    <tr>
+        <th>The amount of people:</th>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th>The number of rent days:</th>
+        <td>3</td>
+    </tr>
+    <tr>
+        <th>Type of Services:</th>
+        <td>Vip</td>
+    </tr>
+    <tr>
+        <th>Type of Rooms:</th>
+        <td>Villa</td>
+    </tr>
+</table>
+<button type="button" onclick="Do()">Edit</button>
+<button type="button" onclick="Save()">Save</button>
+
+</body>
+<script>
+
+    function Do() {
+        document.getElementById("tab").innerHTML= " <tr>\n" +
+            "        <th>Full Name:</th>\n" +
+            "        <td> <input id='name' name='name' type='text' value='Huỳnh Ngọc Thịnh'></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th> ID Number:</th>\n" +
+            "        <td><input id='b' type='number' value='123456789'/></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Date of birth:</th>\n" +
+            "        <td> <input id='c' name='date' type='date'></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Email:</th>\n" +
+            "        <td><input id='d' name='mail' type='text' value='conga@gacon.com'> </td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Address:</th>\n" +
+            "        <td><select id='f'>" +
+            "<option>Đà Nẵng</option>" +
+            "<option>Huế</option>" +
+            "<option>Hà Nội</option>" +
+            "</select></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Customer:</th>\n" +
+            "        <td><select id='g' name='cus'>" +
+            "<option>Diamond</option>" +
+            "<option>Plantinum</option>" +
+            "<option>Gold</option>" +
+            "<option>Silver</option>" +
+            "<option>Member</option>" +
+            "</select></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>The amount of people:</th>\n" +
+            "        <td><input id='i' name='peo' type='number' value='2'></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>The number of rent days:</th>\n" +
+            "        <td> <input id='j' name='rent' type='number' value='3'></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Type of Services:</th>\n" +
+            "        <td><select id='k' name='service'>" +
+            "<option>Vip</option>" +
+            "<option>Bussiness</option>" +
+            "</select></td>\n" +
+            "    </tr>\n" +
+            "    <tr>\n" +
+            "        <th>Type of Rooms:</th>\n" +
+            "        <td><select id='l' name='room'>" +
+            "<option>Villa</option>" +
+            "<option>House</option>" +
+            "<option>Room</option>" +
+            "</select></td>\n" +
+            "    </tr>"
+    }
+    function Save() {
+        let name =document.getElementById("name").value;
+        let idnum =document.getElementById("b").value;
+        let birth =document.getElementById("c").value;
+        let mail =document.getElementById("d").value;
+        let addr =document.getElementById("f").value;
+        let custom =document.getElementById("g").value;
+        let disc = 0;
+        let peo =document.getElementById("i").value;
+        let rent =parseInt(document.getElementById("j").value);
+        let services =document.getElementById("k").value;
+        let room =document.getElementById("l").value;
+        let a =0; //thời gian lưu trú
+        let b= 0; // loại khách
+        let money =0;
+
+        switch (room) {
+
+            case 'Villa':
+                money= parseInt(500);
+                break;
+            case 'House':
+                money=parseInt(300);
+                break;
+            case 'Room':
+                money = parseInt(100);
+                break;
+        }
+
+        switch (addr) {
+            case "Đà Nẵng":
+                disc = parseInt(20);
+                break;
+            case "Huế":
+                disc = parseInt(10);
+                break;
+            case "Quảng Nam":
+                disc =parseInt(5);
+                break;
+        }
+        switch(custom){
+            case "Diamond":
+               b=parseInt(15);
+               break;
+            case "Plantinum":
+                b=parseInt(10);
+                break;
+            case "Gold":
+                b=parseInt(5);
+                break;
+            case "Silver":
+                b=parseInt(2);
+                break;
+            case "Member":
+                b=parseInt(0);
+                break;
+        }
+        if(rent >=7){
+            a=parseInt(30);
+
+        } else if (rent >=5){
+            a=parseInt(20);
+        } else if (rent >=2 && rent <=4){
+            a =parseInt(10);
+        } else if (rent <2){
+            a =parseInt(5);
+        }
+
+        let dis= disc + b + a;
+        let total=money * rent-dis;
+
+        document.writeln("Full name:"+name +'<br>');
+        document.writeln("ID Number:"+idnum+'<br>');
+        document.writeln("Date of birht:"+birth +'<br>');
+        document.writeln("Email:"+mail +'<br>');
+        document.writeln("Address:"+addr +'<br>');
+        document.writeln("Customer:"+custom +'<br>');
+
+        document.writeln("The amount of people:"+peo +'<br>');
+        document.writeln("Rent days:"+rent +'<br>');
+        document.writeln("Type of services:"+services +'<br>');
+        document.writeln("Room:"+room +'<br>');
+        document.writeln("Số tiền phải trả: " +total);
+
+    }
+
+
+</script>
+</html>
