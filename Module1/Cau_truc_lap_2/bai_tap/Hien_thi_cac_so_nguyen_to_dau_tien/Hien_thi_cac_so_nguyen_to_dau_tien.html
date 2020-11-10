@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num= prompt("nhập:");
+    let count =0;
+    let N =2;
+    let i=3;
+    let test=true;
+    if (num<=N){
+        document.writeln(N);
+        count++;
+    }
+    // while (count<num){
+    //      if (test==true&& count<num){
+    //         document.writeln(N);
+    //         count++;
+    //     }
+    //      while ()
+    // }
+    for (;i<1000;i++){
+        for (;N<i;N++)
+        if (i%N==0){
+            test=false;
+
+        } if (test==true && count<num){
+            document.writeln(N);
+            count++;
+        }
+    }
+</script>
+
+</body>
+</html>

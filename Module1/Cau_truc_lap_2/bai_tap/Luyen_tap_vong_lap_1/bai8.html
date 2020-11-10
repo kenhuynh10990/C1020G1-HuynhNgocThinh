@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="Do()">Play</button>
+<script>
+    function Do() {
+        let min= parseInt(prompt("Nhập số:"));
+        let max= parseInt(prompt("Nhập số:"));
+        let c= parseInt(prompt("Nhập số đoán:"));
+        let a= Math.floor(Math.random()*max)+min;
+        while(a!=c){
+            if (a>c){
+                c=prompt("mời bạn nhập số lớn hơn:");
+            } else {
+                c=prompt("mời bạn nhập số nhỏ hơn:");
+            }
+        }
+        if (a=c){
+            alert("Chúc mừng");
+        }
+
+
+    }
+</script>
+
+</body>
+</html>
