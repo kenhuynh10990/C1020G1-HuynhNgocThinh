@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array= [0,2,5,4,6,8];
+    let b=[array[0]];
+
+    for (let i=1;i<array.length; i++)
+    {
+        if ((array[i]%2===0 )&& (array[i-1]%2===0))
+        {
+            b.push('-', array[i]);
+        }
+        else
+        {
+            b.push(array[i]);
+        }
+
+    }
+    console.log(b.join(''));
+
+</script>
+
+</body>
+</html>

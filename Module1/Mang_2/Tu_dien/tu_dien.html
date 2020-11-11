@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="text" type="text">
+<button type="button" onclick="Do()">Search</button>
+<script>
+
+    function Do() {
+        let array = ["hi","bye"];
+        let array1 = ["Chào","tạm biệt"];
+let index =0;
+        let i;
+        let text=document.getElementById("text").value;
+        for ( i= 0; i< array.length; i++){
+           if (text== array[i] ){
+               index=i;
+               console.log(array1[index]);
+               break;
+           } else {
+               console.log('Không tìm thấy');
+           }
+            }
+
+
+
+
+
+    }
+
+
+</script>
+</body>
+</html>

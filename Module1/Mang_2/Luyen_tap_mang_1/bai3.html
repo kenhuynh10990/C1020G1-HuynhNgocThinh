@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sum=0;
+    let array=[1,2,4,5,3,23,22,44,60,54];
+    let a=array.length
+    array.sort((a,b)=>{
+        return a-b;
+    })
+    console.log(array[array.length-1]);
+    for (let i=0; i<array.length;i++){
+        sum+= array[i];
+    }
+
+    console.log(sum/a);
+</script>
+
+</body>
+</html>

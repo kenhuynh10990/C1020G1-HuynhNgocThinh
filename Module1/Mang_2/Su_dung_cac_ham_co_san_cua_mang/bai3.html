@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num=window.prompt("nhập");
+    let array1= num.toString();
+    let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lower = 'abcdefghijklmnopqrstuvwxyz';
+    let array= [];
+
+
+    for (let i =0; i<array1.length;i++){
+        if (upper.indexOf(array1[i])!==-1){
+            array.push(array1[i].toLowerCase());
+        } else if (lower.indexOf(array1[i])!==-1){
+            array.push(array1[i].toUpperCase());
+        } else {
+            array.push(array1[i]);
+        }
+    }
+    console.log(array.join(''));
+</script>
+
+</body>
+</html>
