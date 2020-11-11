@@ -7,6 +7,20 @@
 <body>
 <script>
     let name =prompt("Nhập tên:");
+    let nameStandardized = "";
+    name = name.toLocaleLowerCase();
+    for (let i = 0; i < name.length; i++) {
+        if (name.charAt(i) == " " && name.charAt(i + 1) == " ") {
+            continue;
+        }
+        if (i == 0 || name.charAt(i - 1) == " ") {
+            nameStandardized += name.charAt(i).toLocaleUpperCase();
+            continue;
+        }
+        nameStandardized += name.charAt(i);
+    }
+    name = nameStandardized;
+
     let idnum =prompt("Nhập CMND:");
     while (idnum >999999999|| idnum<100000000){
         alert("Mời nhập lại CMND");
@@ -25,7 +39,7 @@
     let addr =prompt("Nhập địa chỉ:");
     let custom =prompt("Nhập loại customer:");
     let peo =prompt("Nhập số người đi kèm:");
-    while (!(/^\+?(0|[1-9]\d*)$/).test(rent)){
+    while (!(/^\+?(0|[1-9]\d*)$/).test(peo)){
         alert("Nhập lại");
         rent =prompt("Nhập số người đi kèm:");
     }
@@ -37,6 +51,18 @@
     }
     let services =prompt("Nhập loại dịch vụ:");
     let room =prompt("Nhập loại phòng:");
+    document.writeln("Full name:"+name +'<br>');
+    document.writeln("ID Number:"+idnum+'<br>');
+    document.writeln("Date of birht:"+birth +'<br>');
+    document.writeln("Email:"+mail +'<br>');
+    document.writeln("Address:"+addr +'<br>');
+    document.writeln("Customer:"+custom +'<br>');
+
+    document.writeln("The amount of people:"+peo +'<br>');
+    document.writeln("Rent days:"+rent +'<br>');
+    document.writeln("Type of services:"+services +'<br>');
+    document.writeln("Room:"+room +'<br>');
+
 </script>
 
 </body>
