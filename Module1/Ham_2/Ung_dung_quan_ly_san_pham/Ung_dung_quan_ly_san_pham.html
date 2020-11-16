@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="text" type="text" placeholder="New Product">
+<button type="button" onclick="Add()">Add</button>
+<table id="a"></table>
+
+<script>
+
+    let array=[];
+    let sout;
+    sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    let product;
+
+    function Add() {
+        sout = sout +"<tr>"
+            array.push(document.getElementById("text").value);
+        product=array[array.length-1];
+        sout= sout+"<td id='b'>"+product+"</td>"+"<td>"+"<input onclick='Edit()' type='button' value='Edit'>"+"</td>"+"<td>"+"<input onclick='Del()' type='button' value='Delete'>"+"</td>"
+
+
+        sout = sout +"</tr>"
+        sout = sout + "</table>"
+        document.getElementById("a").innerHTML= sout;
+
+    }
+    function Edit() {
+       let c= document.getElementById("b").value
+    }
+    function Del(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("myTable").deleteRow(i);
+</script>
+</body>
+</html>

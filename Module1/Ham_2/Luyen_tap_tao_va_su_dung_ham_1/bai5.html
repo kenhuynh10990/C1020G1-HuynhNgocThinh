@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe","Regulus"];
+    let star= ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major","Leo"]
+    function search(){
+        let str= prompt("nhập:");
+        for (let i=0; i< array.length;i++){
+                   if (array[i]== str){
+                       document.write(star[i]);
+                       break;
+               }else {
+                       document.write("Không tìm thấy trong danh sách");
+                       break;
+                   }
+            }
+
+    }
+
+    search()
+</script>
+</body>
+</html>
