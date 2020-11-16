@@ -22,60 +22,63 @@
 </head>
 <body>
 <form>
-<table>
+<table >
     <tr>
         <th>Full Name:</th>
-        <td> <input type="text" name="name"></td>
+        <td> <input type="text" id="a" name="name"></td>
     </tr>
     <tr>
         <th> ID Number:</th>
-        <td><input type="number" name="IDnum"></td>
+        <td><input  type="number" id="b" name="IDnum"></td>
     </tr>
     <tr>
         <th>Date of birth:</th>
-        <td><input type="date" name="birthday"></td>
+        <td><input  type="date" id="c" name="birthday"></td>
     </tr>
     <tr>
         <th>Email:</th>
-        <td><input type="email" name="email"></td>
+        <td><input type="email" id="d" name="email"></td>
     </tr>
     <tr>
         <th>Address:</th>
-        <td><input type="text" name="address"></td>
+        <td><input type="text" id="f"name="address"></td>
     </tr>
     <tr>
         <th>Customer:</th>
         <td>
-            <input type="radio" name="typecus"> Diamond
-            <input type="radio" name="typecus"> Plantinum
-            <input type="radio" name="typecus"> Gold
-            <input type="radio" name="typecus"> Silver
-            <input type="radio" name="typecus"> Member
+            <select name="customer" style="width: 167px" id="g">
+                <option>Diamond</option>
+                <option>Plantinum</option>
+                <option>Gold</option>
+                <option>Silver</option>
+                <option>Member</option>
+            </select>
+
         </td>
     </tr>
     <tr>
         <th>Discount:</th>
         <td>
-            <select name="discount" style="width: 167px">
-                <option>10%</option>
-                <option>20%</option>
-                <option>30%</option>
+            <select id="h" name="discount" style="width: 167px">
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
             </select>
         </td>
-<!--        <td><input type="number" name="discount"></td>-->
+
     </tr>
     <tr>
         <th>The amount of people:</th>
-        <td><input type="number" name="numpeo"></td>
+        <td><input  id="i"type="number" name="numpeo"></td>
     </tr>
     <tr>
         <th>The number of rent days:</th>
-        <td><input type="number" name="rentdays"></td>
+        <td><input id="j" type="number" name="rentdays"></td>
     </tr>
     <tr>
         <th>Type of Services:</th>
         <td>
-            <select name="Services">
+            <select id="k" name="Services">
                 <option>Vip</option>
                 <option>Bussiness</option>
                 <option>Normal</option>
@@ -85,10 +88,10 @@
     <tr>
         <th>Type of Rooms:</th>
         <td>
-            <select name="rooms">
-                <option>Villa $500/day</option>
-                <option>House $300/day</option>
-                <option>Room $100/day</option>
+            <select id="l" name="rooms">
+                <option>Villa </option>
+                <option>House</option>
+                <option>Room </option>
             </select>
         </td>
     </tr>
@@ -97,9 +100,55 @@
 
 
 </table>
-<input type="submit" name="submit" value="Gửi" style="font-size: 12px">
+<input type="button" name="submit" value="Gửi" onclick="Do()" style="font-size: 12px">
 <input type="reset" name="reset" value="Nhập lại" style="font-size: 12px">
 
+
 </form>
+<script>
+    function Do() {
+        let name =document.getElementById("a").value;
+        let idnum =document.getElementById("b").value;
+        let birth =document.getElementById("c").value;
+        let mail =document.getElementById("d").value;
+        let addr =document.getElementById("f").value;
+        let custom =document.getElementById("g").value;
+        let disc =parseInt(document.getElementById("h").value);
+        let peo =document.getElementById("i").value;
+        let rent =parseInt(document.getElementById("j").value);
+        let services =document.getElementById("k").value;
+        let room =document.getElementById("l").value;
+        let money=0;
+        switch (room) {
+
+            case 'Villa':
+                money= parseInt(500);
+                break;
+            case 'House':
+                money=parseInt(300);
+                break;
+            case 'Room':
+                money = parseInt(100);
+                break;
+        }
+        let total= money*rent*(1-disc/100);
+
+        document.writeln("Số tiền phải trả:" +total+'<br>');
+
+        document.writeln("Full name:"+name +'<br>');
+        document.writeln("ID Number:"+idnum+'<br>');
+        document.writeln("Date of birht:"+birth +'<br>');
+        document.writeln("Email:"+mail +'<br>');
+        document.writeln("Address:"+addr +'<br>');
+        document.writeln("Customer:"+custom +'<br>');
+        document.writeln("Discount:"+disc +'<br>');
+        document.writeln("The amount of people:"+peo +'<br>');
+        document.writeln("Rent days:"+rent +'<br>');
+        document.writeln("Type of services:"+services +'<br>');
+        document.writeln("Room:"+room +'<br>');
+    }
+
+
+</script>
 </body>
 </html>
