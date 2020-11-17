@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Retacgle{
+        constructor(long,wide) {
+            this.long = long;
+            this.wide = wide;
+        }
+        getArea(){
+            return (this.long+this.wide)*2;
+        }
+        getArc(){
+            return this.long*this.wide;
+        }
+
+    }
+    let retacgle = new Retacgle(parseInt(prompt("Nhập a:")),parseInt(prompt("nhập b:")));
+    let area= retacgle.getArea();
+    let arc= retacgle.getArc();
+    alert("area:" +area+ "arc:" +arc );
+</script>
+
+</body>
+</html>

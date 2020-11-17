@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(celsius) {
+            this.celsius=celsius;
+        }
+        cTof(){
+            return 32+this.celsius*9/5;
+        }
+        cTok(){
+            return this.celsius+273.15;
+        }
+    }
+    let celsius= new Temperature(25);
+    let f= celsius.cTof();
+    let k= celsius.cTok();
+    alert(f);
+    alert(k);
+</script>
+
+</body>
+</html>
