@@ -10,24 +10,21 @@
 <script>
 
     function Do() {
-        let array = ["hi","bye"];
-        let array1 = ["Chào","tạm biệt"];
-let index =0;
+        let array = ["hi", "bye"];
+        let array1 = ["Chào", "tạm biệt"];
+        let index = 0;
         let i;
-        let text=document.getElementById("text").value;
-        for ( i= 0; i< array.length; i++){
-           if (text== array[i] ){
-               index=i;
-               console.log(array1[index]);
-               break;
-           } else {
-               console.log('Không tìm thấy');
-           }
+        let text = document.getElementById("text").value;
+        for (i = 0; i < array.length; i++) {
+            if (text == array[i]) {
+                index = i;
+                console.log(array1[index]);
+                break;
+            } else {
+                console.log('Không tìm thấy');
+                break;
             }
-
-
-
-
+        }
 
     }
 
