@@ -1,6 +1,8 @@
 package ke_thua.thuc_hanh;
 
-public class Square extends Rectangle {
+import abstract_class.bai_tap.colorable.Colorable;
+
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 
@@ -21,15 +23,15 @@ public class Square extends Rectangle {
         setLength(side);
     }
 
-    @Override
-    public void setWidth(double width) {
-        setSide(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        setSide(length);
-    }
+//    @Override
+//    public void setWidth(double width) {
+//        setSide(width);
+//    }
+//
+//    @Override
+//    public void setLength(double length) {
+//        setSide(length);
+//    }
 
     @Override
     public String toString() {
@@ -37,5 +39,10 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 }

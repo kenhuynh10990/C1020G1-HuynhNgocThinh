@@ -1,4 +1,4 @@
-package OOP.thuc_hanh;
+package oop.thuc_hanh;
 
 public class Rectangle {
     double width, height;

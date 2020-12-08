@@ -1,4 +1,4 @@
-package OOP.bai_tap;
+package oop.bai_tap;
 
 public class Fan {
     private int speed = 1;

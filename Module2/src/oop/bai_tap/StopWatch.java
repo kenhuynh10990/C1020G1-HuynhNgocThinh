@@ -1,4 +1,4 @@
-package OOP.bai_tap;
+package oop.bai_tap;
 
 import java.time.LocalTime;
 

@@ -41,13 +41,12 @@ public class MoveablePoint extends Point2D {
         this.ySpeed=ySpeed;
     }
     public float[] getSpeed(){
-        float[] array = {this.xSpeed, this.ySpeed};
-        return array;
+        return new float[]{this.xSpeed, this.ySpeed};
     }
-    public String move(){
+    public MoveablePoint move(){
         setX(getX()+this.xSpeed) ;
         setY(getY()+this.ySpeed);
-        return "x:"+ getX()+",y: " + getY();
+        return this;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package ke_thua.thuc_hanh;
 
-public class Shape {
+import abstract_class.bai_tap.resizeable.Resizeable;
+
+public class Shape implements Resizeable {
     private String color = "green";
     private boolean filled = true;
 
@@ -28,6 +30,10 @@ public class Shape {
         this.filled = filled;
     }
 
+    public double getArea() {
+        return 0;
+    }
+
     @Override
     public String toString() {
         return "A Shape with color of "
@@ -36,5 +42,10 @@ public class Shape {
                 + (isFilled() ? "filled" : "not filled");
     }
 
+
+    @Override
+    public void resize(double percent) {
+
+    }
 
 }
