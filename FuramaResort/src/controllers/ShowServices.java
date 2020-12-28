@@ -43,12 +43,12 @@ public class ShowServices {
                 case 4:
                     showAllVilla();
                     break;
-//                case 5:
-//                    showAllHouse();
-//                    break;
-//                case 6:
-//                    showAllRoom();
-//                    break;
+                case 5:
+                    showAllHouse();
+                    break;
+                case 6:
+                    showAllRoom();
+                    break;
 
                 case 7:
                     display();

@@ -2,15 +2,11 @@ package controllers;
 
 import commons.FileCSV;
 import commons.Regex;
-import javafx.concurrent.Service;
 import models.House;
 import models.Room;
 import models.Services;
 import models.Villa;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -77,18 +73,10 @@ public class AddServices {
 
     // addServices().
     public static void addServices(Services service) {
-        scanner.nextLine();
-        do {
-            System.out.println("Enter Id:");
-            id = scanner.nextLine();
-            if (!Regex.idServiceValid(id)) {
-                System.out.println("Try again!!");
-            }
-        } while (!Regex.idServiceValid(id));
-
+        Scanner scanner1=new Scanner(System.in);
         do {
             System.out.println("Enter Services name:");
-            name = scanner.nextLine();
+            name = scanner1.nextLine();
             if (!Regex.nameServiceValid(name)) {
                 System.out.println("Try again!!!");
             }
@@ -96,7 +84,7 @@ public class AddServices {
 
         do {
             System.out.println("Enter area:");
-            area = scanner.nextLine();
+            area = scanner1.nextLine();
             if (!Regex.areaValid(area)) {
                 System.out.println("Try again!!!");
             }
@@ -105,21 +93,21 @@ public class AddServices {
 
         do {
             System.out.println("Enter fee:");
-            fee = scanner.nextLine();
+            fee = scanner1.nextLine();
             if (!Regex.feeValid(fee)) {
                 System.out.println("Try again!!!");
             }
         } while (!Regex.feeValid(fee));
         do {
             System.out.println("Enter number of people:");
-            numPeople = scanner.nextLine();
+            numPeople = scanner1.nextLine();
             if (!Regex.peopleValid(numPeople)) {
                 System.out.println("Try again!!");
             }
         } while (!Regex.peopleValid(numPeople));
 
         System.out.println("Enter type of rent:");
-        typeRent = scanner.nextLine();
+        typeRent = scanner1.nextLine();
         service.setId(id);
         service.setNameServices(name);
         service.setAreaUsed(Double.parseDouble(area));
@@ -131,22 +119,28 @@ public class AddServices {
     }
 
     public static void addVilla() {
+        Scanner scanner1 = new Scanner(System.in);
         Villa villa = new Villa();
-//        scanner.nextLine();
+        do {
+            System.out.println("Enter id service(SVVL-XXXX):");
+            id = scanner1.nextLine();
+        }while (!Regex.idVillaValid(id));
+
+
         addServices(villa);
-        scanner.nextLine();
+
         do {
             System.out.println("Room standard:");
-            roomStandard = scanner.nextLine();
-            if (!Regex.nameValid(roomStandard)){
+            roomStandard = scanner1.nextLine();
+            if (!Regex.nameValid(roomStandard)) {
                 System.out.println("Try again!!!");
             }
-        }while (!Regex.nameValid(roomStandard));
+        } while (!Regex.nameValid(roomStandard));
         System.out.println("Utilities:");
-        utilities = scanner.nextLine();
+        utilities = scanner1.nextLine();
         do {
             System.out.println("Pool area:");
-            poolArea = scanner.nextLine();
+            poolArea = scanner1.nextLine();
             if (!Regex.areaValid(poolArea)) {
                 System.out.println("Try again");
             }
@@ -155,7 +149,7 @@ public class AddServices {
 
         do {
             System.out.println("Floor:");
-            floor = scanner.nextLine();
+            floor = scanner1.nextLine();
             if (!Regex.floorValid(floor)) {
                 System.out.println("Try again.");
             }
@@ -177,26 +171,34 @@ public class AddServices {
     }
 
     public static void addHouse() {
+        Scanner scanner1 = new Scanner(System.in);
         House house = new House();
+        do {
+            System.out.println("Enter id service (SVHO-XXXX):");
+            id = scanner1.nextLine();
+            if (Regex.idHouseValid(id)) {
+                System.out.println("Enter id service (SVHO-XXXX):");
+            }
+        } while (Regex.idHouseValid(id));
         addServices(house);
-        scanner.nextLine();
-       do {
-           System.out.println("Room standard:");
-           roomStandard = scanner.nextLine();
-           if (!Regex.nameValid(roomStandard)){
-               System.out.println("Try again!!!");
-           }
-       }while (!Regex.nameValid(roomStandard));
+        scanner1.nextLine();
+        do {
+            System.out.println("Room standard:");
+            roomStandard = scanner1.nextLine();
+            if (!Regex.nameValid(roomStandard)) {
+                System.out.println("Try again!!!");
+            }
+        } while (!Regex.nameValid(roomStandard));
 
         System.out.println("Utilities:");
-        utilities = scanner.nextLine();
-       do {
-           System.out.println("Floor:");
-           floor = scanner.nextLine();
-           if (!Regex.floorValid(floor)){
-               System.out.println("Try again");
-           }
-       }while (!Regex.floorValid(floor));
+        utilities = scanner1.nextLine();
+        do {
+            System.out.println("Floor:");
+            floor = scanner1.nextLine();
+            if (!Regex.floorValid(floor)) {
+                System.out.println("Try again");
+            }
+        } while (!Regex.floorValid(floor));
 
 
         house.setRoomStandard(roomStandard);
@@ -209,12 +211,20 @@ public class AddServices {
     }
 
     public static void addRoom() {
+        Scanner scanner1 = new Scanner(System.in);
         Room room = new Room();
+        do {
+            System.out.println("Enter id service (SVRO-XXXX):");
+            id = scanner1.nextLine();
+            if (Regex.idRoomValid(id)) {
+                System.out.println("Enter id service (SVRO-XXXX):");
+            }
+        } while (Regex.idRoomValid(id));
 
         addServices(room);
-        scanner.nextLine();
+        scanner1.nextLine();
         System.out.println("Free service:");
-        freeService = scanner.nextLine();
+        freeService = scanner1.nextLine();
 
         room.setFreeServies(freeService);
         myRoom.add(room);

@@ -3,9 +3,17 @@ package commons;
 public class Regex {
     private static final String NAME_SERVICE_REGEX = "[A-Z]{1}[a-z]+";
 
-    public static boolean idServiceValid(String idService) {
-        String ID_SERVICE_REGEX = "(((SVVL-)[0-9]{4})|((SVHO-)[0-9]{4})|((SVRO-)[0-9]{4})))";
-        return idService.matches(ID_SERVICE_REGEX);
+    public static boolean idVillaValid(String idVilla) {
+        String ID_VILLA_REGEX = "(SVVL-)[0-9]{4}$";
+        return idVilla.matches(ID_VILLA_REGEX);
+    }
+    public static boolean idHouseValid(String idHouse){
+        String ID_HOUSE_REGEX="(SVHO-)[0-9]{4}";
+        return !idHouse.matches(ID_HOUSE_REGEX);
+    }
+    public static boolean idRoomValid(String idRoom){
+        String ID_ROOM_REGEX="(SVRO-)[0-9]{4}";
+        return !idRoom.matches(ID_ROOM_REGEX);
     }
 
     public static boolean nameServiceValid(String nameService) {
