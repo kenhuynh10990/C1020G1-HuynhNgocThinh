@@ -6,6 +6,7 @@ import commons.Regex;
 import models.Customer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,13 +44,16 @@ public class CustomerMethod {
 
         } while (!Regex.birthdayValid(dateOfBirth));
 
+        String b;
         do {
             System.out.println("Enter sex:");
             sex = scanner.nextLine();
-            if (!Regex.genderValid(sex)) {
+            String s=sex.toLowerCase();
+            b= Character.toUpperCase(s.charAt(0))+s.substring(1);
+            if (!Regex.genderValid(b)) {
                 System.out.println("Khong dung.");
             }
-        } while (!Regex.genderValid(sex));
+        } while (!Regex.genderValid(b));
 
         do {
             System.out.println("Enter ID:");
@@ -76,13 +80,13 @@ public class CustomerMethod {
         address = scanner.nextLine();
         customer.setFullName(name);
         customer.setDateOfBirth(dateOfBirth);
-        customer.setSex(sex);
+        customer.setSex(b);
         customer.setIdNumber(Integer.parseInt(id));
         customer.setPhone(phone);
         customer.setEmail(email);
         customer.setTypeCustomer(typeCustomer);
         customer.setAddress(address);
-        line = name + COMMA + dateOfBirth + COMMA + sex + COMMA + id + COMMA + phone + COMMA + email + COMMA + typeCustomer + COMMA + address;
+        line = name + COMMA + dateOfBirth + COMMA + b + COMMA + id + COMMA + phone + COMMA + email + COMMA + typeCustomer + COMMA + address;
         myCustomer.add(customer);
         FileCSV.writeFile(CUSTOMER_PATH, line);
         System.out.println("Done.");

@@ -61,7 +61,7 @@ public class Regex {
     }
 
     public static boolean idCardValid(String idCard) {
-        String ID_REGEX = "([0-9]\\s){3}";
+        String ID_REGEX = "[0-9]{9}";
         return idCard.matches(ID_REGEX);
     }
 

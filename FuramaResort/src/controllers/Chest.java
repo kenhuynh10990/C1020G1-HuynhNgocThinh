@@ -23,7 +23,7 @@ public class Chest {
             employeeStack.add(new Employee(id, name, age, address));
         }
         for(int i =0; i<employeeStack.size();i++){
-            System.out.println((i+1)+"."+employeeStack.get(i).toString());
+            System.out.println((i+1)+"."+employeeStack.get(i).getName());
         }
         System.out.println("Enter index of Employee:");
         String index = scanner.nextLine();
