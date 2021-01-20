@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*= "col-"] {
+            float: left;
+            padding: 10px;
+        }
+
+        body {
+            background: #cbcbcb;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0;
+
+        }
+
+
+        .header ul {
+            background-color: black;
+            color: white;
+            padding: 15px;
+        }
+
+        .header ul li {
+            list-style: none;
+            display: inline;
+            margin-right: 5px;
+        }
+        .header ul li:hover{
+            background-color: greenyellow;
+        }
+
+        .footer {
+            color: white;
+            background: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .left-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .left-panel ul li {
+            color: blue;
+        }
+        #float-panel {
+            color: white;
+            float: right;
+        }
+
+        .center-panel {
+            background: white;
+        }
+
+        .right-panel {
+            color: white;
+            background-color: black;
+
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="col-12">
+        <div class="header">
+            <div>
+                <ul>
+                    <li>logo</li>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Project</li>
+                    <li id="float-panel">Login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="col-3">
+        <div class="left-panel">
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="center-panel">
+            <h3>Welcome</h3>
+            <p>RWD (Thiết kế Web Thích ứng) là kỹ thuật được sử dụng để trang web có thể hiển thị tốt trên nhiều loại
+                thiết bị với kích thước của trình duyệt khác nhau.
+
+                RWD sử dụng CSS và HTML để thay đổi kích thước, ẩn hoặc thêm các thành phần khác nhau để trang web hiển
+                thị tốt và đáp ứng được các thói quen sử dụng khác nhau trên các thiết bị khác nhau.</p>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="right-panel">
+            <p>ADS</p>
+        </div>
+        <div class="right-panel">
+            <p>ADS</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="col-12">
+        <div class="footer">
+            <div>Footer text</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
