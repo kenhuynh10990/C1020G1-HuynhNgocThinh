@@ -61,6 +61,11 @@ public class UserServlet extends HttpServlet {
                 case "search":
                     searchCountry(request, response);
                     break;
+                case "permision":
+
+                    addUserPermision(request, response);
+
+                    break;
                 default:
                     showList(request, response);
             }
@@ -68,7 +73,16 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        User user = new User("kien", "kienhoang@gmail.com", "vn");
+
+        int[] permision = {1, 2, 4};
+
+        userService.addUserTransaction(user, permision);
+
+    }
     private void showList(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("listUser", userService.selectAllUsers());
@@ -83,7 +97,8 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        user = userService.selectUser(id);
+    //        user = userService.selectUser(id);
+        user=userService.getUserById(id);
         request.setAttribute("user", user);
         request.getRequestDispatcher("update.jsp").forward(request, response);
     }
@@ -115,13 +130,20 @@ public class UserServlet extends HttpServlet {
 
     private void createSuccess(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        name = request.getParameter("name");
-        email = request.getParameter("email");
-        country = request.getParameter("country");
-        newUser = new User(0, name, email, country);
-        userService.insertUser(newUser);
-        request.setAttribute("listUser", userService.selectAllUsers());
-        request.getRequestDispatcher("main.jsp").forward(request, response);
+
+//        userService.insertUser(newUser);
+        try {
+            name = request.getParameter("name");
+            email = request.getParameter("email");
+            country = request.getParameter("country");
+            newUser = new User(0, name, email, country);
+            userService.insertUserStore(newUser);
+            request.setAttribute("listUser", userService.selectAllUsers());
+            request.getRequestDispatcher("main.jsp").forward(request, response);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void updateSuccess(HttpServletRequest request, HttpServletResponse response)
