@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product</h3>
+<p>
+    <a th:href="@{/create}">
+        Add new product
+    </a>
+</p>
+
+<table id = "customers">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="sonkhung:${product}">
+        <td th:text="${sonkhung.name}"></td>
+        <td th:text="${sonkhung.price}"></td>
+        <td><a th:href="@{/edit/__${sonkhung.id}__ }">edit</a></td>
+        <td><a th:href="@{/delete/__${sonkhung.id}__ }">delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<!--<div class="notify">-->
+<!--    <div th:if="${success}">-->
+<!--        <span th:text="${success}"></span>-->
+<!--    </div>-->
+<!--</div>-->
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
