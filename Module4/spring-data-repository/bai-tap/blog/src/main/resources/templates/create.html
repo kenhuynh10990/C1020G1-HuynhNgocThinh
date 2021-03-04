@@ -26,7 +26,7 @@
             <td>Categories</td>
             <td>
                 <select th:field="*{category}">
-                    <option th:each="p:${categories}" th:value="${p.id}" th:text="${p.category}"></option>
+                    <option th:each="p:${categories}" th:value="${p.id}" th:text="${p.categoryName}"></option>
                 </select>
             </td>
         </tr>

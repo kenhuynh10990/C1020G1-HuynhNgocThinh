@@ -44,13 +44,13 @@ public class BlogController {
     }
 
     @GetMapping("/")
-    public String list(Model model, @PageableDefault(size = 2) Pageable pageable, @RequestParam Optional<String> textSearch) {
+    public String list(Model model, @PageableDefault(size = 2,sort = "date") Pageable pageable, @RequestParam Optional<String> textSearch) {
         if (textSearch.isPresent()) {
             model.addAttribute("blog", blogService.findAllByTextContaining(textSearch.get(), pageable));
             return "/list";
         } else {
             model.addAttribute("blog", blogService.findAll(pageable));
-            model.addAttribute("category", categoriesService.findAll(pageable));
+//            model.addAttribute("category", categoriesService.findAll(pageable));
             return "/list";
         }
     }
