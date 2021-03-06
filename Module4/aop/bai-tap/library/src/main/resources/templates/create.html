@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Add book</h2>
+<p>
+    <a href="/">Book list</a>
+</p>
+<!--<th:block th:if="${message}">-->
+<!--    <p th:text="${message}"></p>-->
+<!--</th:block>-->
+<form th:action="@{/create}" th:object="${book}" method="post">
+    <table>
+
+        <tr>
+            <td>Book name:</td>
+            <td><input type="text" th:field="*{bookName}"/></td>
+        </tr>
+        <tr>
+            <td>Quality</td>
+            <td><input type="text" th:field="*{quality}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add book"></td>
+        </tr>
+    </table>
+</form>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

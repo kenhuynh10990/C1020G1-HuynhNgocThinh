@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<a href="/create">Add new blog</a>
+<a href="/refund">Refund</a>
+<h2>Blog</h2>
+
+<h4 th:text="${message}" style="color: red"></h4>
+
+<form>
+    Search
+    <input type="text" name="textSearch"/>
+    <input type="submit" value="Search">
+</form>
+
+<br>
+    <form th:action="@{/}" method="post">
+        <table id="customers">
+            <tr>
+                <th>Id</th>
+                <th>Book name:</th>
+                <th>Quality</th>
+                <th>Rent</th>
+            </tr>
+            <tr th:each="books: ${book}">
+                <td th:text="${books.id}"></td>
+                <td th:text="${books.bookName}"></td>
+                <td th:text="${books.quality}"></td>
+                <td><a th:href="@{/view/__${books.id}__}">View</a></td>
+            </tr>
+        </table>
+    </form>
+    <div>
+        <a th:href="@{'/'(page=${book.number - 1})}" th:if="${book.hasPrevious()}">Previous</a>
+        <span th:text="${book.number + 1}"></span>/<span th:text="${book.totalPages}"></span>
+        <a th:href="@{'/'(page=${book.number + 1})}" th:if="${book.hasNext()}">Next</a>
+    </div>
+
+<footer th:replace="/layout::footer"></footer>
+
+</body>
+</html>

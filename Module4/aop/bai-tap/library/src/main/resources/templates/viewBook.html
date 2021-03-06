@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<p>
+    <a href="/">Book list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/view}" th:object="${book}"  method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table id="customers">
+        <tr>
+            <td> Id:</td>
+            <td th:text="${book.id}"></td>
+        </tr>
+        <tr>
+            <td> Book name:</td>
+            <td th:text="${book.bookName}"></td>
+        </tr>
+        <tr>
+            <td>Quality:</td>
+            <td th:text="${book.quality}"></td>
+        </tr>
+<!--        <tr th:object="${renter}">-->
+<!--            <td >Customer name:</td>-->
+<!--            <td><input type="text" th:field="*{nameCustomer}"></td>-->
+<!--        </tr>-->
+        <tr>
+            <td></td>
+            <td><a th:href="@{/view/{id}/rented/(id=${book.id})}"><input type="button" value="Rent"></a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a th:href="@{/}"><input type="button" value="Cancel"></a></td>
+        </tr>
+    </table>
+</form>
+<footer th:replace="/layout::footer"></footer>
+
+</body>
+</html>
