@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>List</title>
+
+</head>
+<body>
+<a href="/create">Add new blog</a>
+<h2>Blog</h2>
+<form method="get" action="" id="search">
+    Search
+    <input type="text" name="textSearch" id="text_search"/>
+    <input type="submit" value="Search">
+</form>
+<br>
+<div id="form">
+    <form th:action="@{/}" method="post" id="result_box"></form>
+    <table id="customers">
+        <tr>
+            <th>Id</th>
+            <th>Detail</th>
+            <th>view</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="blogs: ${blog}">
+            <td th:text="${blogs.id}"></td>
+            <td th:text="${blogs.text}"></td>
+            <td><a th:href="@{/view/__${blogs.id}__}">View</a></td>
+            <td><a th:href="@{/edit/__${blogs.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete/__${blogs.id}__ }">Delete</a></td>
+        </tr>
+    </table>
+    <div>
+        <a th:href="@{'/'(page=${blog.number - 1})}" th:if="${blog.hasPrevious()}">Previous</a>
+        <span th:text="${blog.number + 1}"></span>/<span th:text="${blog.totalPages}"></span>
+        <a th:href="@{'/'(page=${blog.number + 1})}" th:if="${blog.hasNext()}">Next</a>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+<<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("#search input[type='submit']").click(function () {
+            console.log("a");
+            input = $("#text_search").val();
+            data = "text=" + input;
+            $.ajax({
+                type: "GET",
+                urt: "/",
+                dataType: "HTML",
+                success: function (data) {
+                    $("#result_box").html(data).show();
+                }
+            })
+
+        });
+        return false
+
+    })
+
+    // $(document).ready(function(){
+    //     $("#searchButton").on("click", function(ev) {
+    //         $.ajax({
+    //             url : "/setSearch/search",
+    //             type : "post",
+    //             data : {
+    //                 "newSearch" : $("#newSearch").val()
+    //             },
+    //             success : function(data) {
+    //                 console.log(data);
+    //             },
+    //             error : function() {
+    //                 console.log("There was an error");
+    //             }
+    //
+    //         });
+    //     });
+</script>
+</body>
+
+</html>
