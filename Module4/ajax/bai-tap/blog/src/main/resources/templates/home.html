@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let result = "";
+        let page = 0;
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/list/',
+            data_type: 'json',
+            success: function (blogs) {
+                console.log(blogs);
+                for (let i = 0; i < blogs.content.length; i++) {
+                    result += "<tr>";
+                    result += "<th>" + (i + 1) + "</th>";
+                    result += "<td>" + blogs.content[i].name + "</td>";
+                    result += "<td>" + blogs.content[i].type + "</td>";
+                    result += "<td>" + blogs.content[i].localDate + "</td>";
+                    result += "<td></td>";
+                    result += "<td></td>";
+                    result += "</tr>";
+                }
+                $("#myTable").html(result);
+            }
+        });
+        $(document).ready(function () {
+            $("#btnLoad").click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:8080/test/?page=' + (++page),
+                    data_type: 'json',
+                    success: function (blogs) {
+                        for (let i = 0; i < blogs.content.length; i++) {
+                            result += "<tr>";
+                            result += "<th>" + (i + 6) + "</th>";
+                            result += "<td>" + blogs.content[i].name + "</td>";
+                            result += "<td>" + blogs.content[i].type + "</td>";
+                            result += "<td>" + blogs.content[i].localDate + "</td>";
+                            result += "<td></td>";
+                            result += "<td></td>";
+                            result += "</tr>";
+                        }
+                        $("#myTable").html(result);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<h2><a href="/create">Add new Blog</a></h2>
+<h2 th:text="${success}"></h2>
+Search by name:
+<input id="myInput" name="s" type="text" placeholder="Search.."/>
+<br/>
+<table border="1" style="border-collapse: collapse">
+    <caption>Blog Table</caption>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Local Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    </tbody>
+</table>
+<br>
+<button id="btnLoad">Load</button>
+</body>
+</html>

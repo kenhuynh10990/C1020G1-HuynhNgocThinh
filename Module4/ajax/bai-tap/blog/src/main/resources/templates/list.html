@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>List</title>
+
+</head>
+<body>
+<a href="/create">Add new blog</a>
+<h2>Blog</h2>
+
+<label for="text_search">Search</label>
+<input type="text" name="textSearch" id="text_search"/>
+<input type="submit" value="Search" id="search">
+
+<br>
+<div id="form">
+<!--    <form th:action="@{/}" method="post" id="result_box"></form>-->
+    <table id="customers">
+        <tr>
+            <th>Id</th>
+            <th>Detail</th>
+            <th>view</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="data">
+        <tr th:each="blogs: ${blog}">
+            <td th:text="${blogs.id}"></td>
+            <td th:text="${blogs.text}"></td>
+            <td><a th:href="@{/view/__${blogs.id}__}">View</a></td>
+            <td><a th:href="@{/edit/__${blogs.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete/__${blogs.id}__ }">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<button id="load">More</button>
+
+<footer th:replace="/layout::footer"></footer>
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        // let page =0 ;
+        $("#search").click(function () {
+            // page++;
+            input = $("#text_search").val();
+            console.log(input);
+            let data = "textSearch=" + input;
+            $.ajax({
+                type: "GET",
+                url: "/search?" + data,
+                // data: {"page": page},
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    let str = "";
+                    for (let i of data) {
+                        str += "<tr> " +
+                            "<td>" + i.id + "</td>\n" +
+                            "<td>" + i.text +
+                            "</td>\n" + "</tr>";
+                    }
+                    $("#data").html(str);
+                }
+            })
+
+        });
+    });
+    $(document).ready(function () {
+        $("#load").click(function () {
+            let result = "";
+            let page = 0;
+            $.ajax({
+
+                type: "GET",
+                url: "/list?" + (++page),
+                dataType: "json",
+                success: function (blog) {
+                    console.log(blog);
+
+                    for (let i of blog) {
+                        result += "<tr>";
+                        result += "<td>" + i.id + "</td>";
+                        result += "<td>" + i.text() + "</td>";
+                        result += "<td>" + "</td>";
+                        result += "<td>" + "</td>";
+                        result += "<td>" + "</td>";
+                        result += "</tr>";
+                    }
+                    $("#data").html(result);
+
+                }
+            })
+
+        })
+    })
+
+
+
+    // $(document).ready(function(){
+    //     $("#searchButton").on("click", function(ev) {
+    //         $.ajax({
+    //             url : "/setSearch/search",
+    //             type : "post",
+    //             data : {
+    //                 "newSearch" : $("#newSearch").val()
+    //             },
+    //             success : function(data) {
+    //                 console.log(data);
+    //             },
+    //             error : function() {
+    //                 console.log("There was an error");
+    //             }
+    //
+    //         });
+    //     });
+</script>
+</body>
+
+</html>
