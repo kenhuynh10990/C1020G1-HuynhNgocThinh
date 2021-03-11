@@ -77,27 +77,27 @@
         });
     });
     $(document).ready(function () {
+        let page = 0;
         $("#load").click(function () {
-            let result = "";
-            let page = 0;
+            page++;
             $.ajax({
-
                 type: "GET",
-                url: "/list?" + (++page),
+                url: "/list",
+                data: {"page": page},
                 dataType: "json",
                 success: function (blog) {
                     console.log(blog);
-
-                    for (let i of blog) {
+                    let result = "";
+                    for (let i of blog.content) {
                         result += "<tr>";
                         result += "<td>" + i.id + "</td>";
-                        result += "<td>" + i.text() + "</td>";
+                        result += "<td>" + i.text + "</td>";
                         result += "<td>" + "</td>";
                         result += "<td>" + "</td>";
                         result += "<td>" + "</td>";
                         result += "</tr>";
                     }
-                    $("#data").html(result);
+                    $("#data").append(result);
 
                 }
             })
