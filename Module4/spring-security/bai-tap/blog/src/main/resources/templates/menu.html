@@ -1,0 +1,76 @@
+<!--<div xmlns:th="http://www.thymeleaf.org"-->
+<!--     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">-->
+
+<!--    <a th:href="@{/}">Home</a>-->
+
+<!--    | &nbsp;-->
+
+<!--    <a th:href="@{/login}">Login </a>-->
+
+<!--    | &nbsp;-->
+
+<!--    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>-->
+
+<!--</div>-->
+<link rel="stylesheet" href="/css/bootstrap.css">
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="bar" xmlns:th="http://www.thymeleaf.org"-->
+<!--     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand" href="#">Navbar</a>-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" -->
+<!--                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
+<!--            <div class="navbar-nav">-->
+<!--                <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>-->
+
+<!--                <div sec:authorize="isAuthenticated()">-->
+<!--                    <a class="nav-link" th:href="@{/create}">Add new blog</a>-->
+<!--&lt;!&ndash;                    <span sec:authentication="principal.username"></span>&ndash;&gt;-->
+<!--                    <a class="nav-link" th:href="@{/logout}">Logout</a>-->
+<!--                </div>-->
+<!--                <div sec:authorize="!isAuthenticated()">-->
+<!--                    <a class="nav-link" th:href="@{/login}">Login</a>-->
+<!--                </div>-->
+
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar w/ text</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                </li>
+                <div sec:authorize="isAuthenticated()">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/create}">Add new blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/logout}">Logout</a>
+                    </li>
+                    </ul>
+                </div>
+                <div sec:authorize="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Login</a>
+                    </li>
+                </div>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

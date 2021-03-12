@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+
+</head>
+<body >
+<th:block th:include="/menu"></th:block>
+
+<h2>Blog</h2>
+
+<label for="text_search">Search</label>
+<input type="text" name="textSearch" id="text_search"/>
+<input type="submit" value="Search" id="search">
+
+<br>
+    <form th:action="@{/}" method="post" id="result_box"></form>
+    <table id="customers">
+        <tr>
+            <th>Id</th>
+            <th>Detail</th>
+            <th>view</th>
+            <div sec:authorize="isAuthenticated()">
+                <th>Edit</th>
+                <th>Delete</th>
+            </div>
+
+
+        </tr>
+        <tbody id="data">
+        <tr  th:each="blogs: ${blog}">
+            <td th:text="${blogs.id}"></td>
+            <td th:text="${blogs.text}"></td>
+            <td><a th:href="@{/view/__${blogs.id}__}">View</a></td>
+            <div sec:authorize="isAuthenticated()">
+                <td><a th:href="@{/edit/__${blogs.id}__ }">Edit</a></td>
+                <td><a th:href="@{/delete/__${blogs.id}__ }">Delete</a></td>
+            </div>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{'/'(page=${blog.number - 1})}" th:if="${blog.hasPrevious()}">Previous</a>
+        <span th:text="${blog.number + 1}"></span>/<span th:text="${blog.totalPages}"></span>
+        <a th:href="@{'/'(page=${blog.number + 1})}" th:if="${blog.hasNext()}">Next</a>
+    </div>
+<footer th:replace="/layout::footer"></footer>
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("#search").click(function () {
+            input = $("#text_search").val();
+            console.log(input);
+            let data = "textSearch=" + input;
+            $.ajax({
+                type: "GET",
+                url: "/search?" + data,
+                // data: {"page": page},
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    let str = "";
+                    for (let i of data){
+                    str += "<tr> " +
+                        "<td>"+i.id+"</td>\n" +
+                        "<td>"+i.text+
+                        "</td>\n" + "</tr>";}
+                    $("#data").html(str);
+                }
+            })
+
+        });
+    })
+
+</script>
+</body>
+
+</html>
